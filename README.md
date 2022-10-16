@@ -6,9 +6,9 @@
 
 # Deployment
 
-- git clone repo url
+- git clone https://github.com/Saymonxp/Profiles-app
 in powershell get inside the folder where the repo was cloned and execute the following commands:
-- python -m venv .venv
+- python -m venv .env
 - .env/Scripts/Activate.ps1
 - pip install -r requirements.txt
 - python manage.py migrate
