@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+    <p>This will be profile page</p>
+    <p>It went through the app templates. Delete the one in main templates</p>
+    {% if employee_list %}
+        <ul>
+        {% for employee in employee_list %}
+            <li>
+                <a href="{{ employee.get_absolute_url }}">{{ employee.username }}</a> ({{ employee.name, employee.position }})
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No employees are listed.</p>
+    {% endif %}
+{% endblock %}
