@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load customtags %}
 {% block title  %}Employee detail{% endblock %}
 {% block content %}
     <h1> Detail</h1>
-    <img scr="{{ employee.avatarMd5 }}">
+    {{ employee.employeeUsername|gravatar:150 }}
     <p> Name: {{ employee.name }}</p>
     <p> Position: {{ employee.position }}</p>
     <p> Python skill: {{ employee.python_skill }}</p>
