@@ -1,3 +1,4 @@
+{% comment %} {% load static %} {% endcomment %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +16,12 @@
     <title>{% block title %} Profiles project {% endblock %}</title>
 </head>
 <body>
-    <main>
-        {% block content %}
-        <div><a href="{% url 'employees' %}">Profiles</a></div>
+    {% comment %} <main> {% endcomment %}
+        {% block header %}
+        <div><a href="{% url 'employee-list' %}">Profiles</a></div>
+        <div><a href="{% url 'home' %}">Home</a></div>
         {% endblock %}
-    </main>
+        {% block content %}{% endblock %}
+    {% comment %} </main> {% endcomment %}
 </body>
 </html>

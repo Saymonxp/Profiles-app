@@ -3,4 +3,15 @@
 {% block content %}
     <p>This will be profile page</p>
     <p>It went through the main templates. Delete the one in app templates</p>
+    {% if employee_list %}
+        <ul>
+        {% for employee in employee_list %}
+            <li>
+                <a href="{{ employee.get_absolute_url }}">{{ employee.name }}</a> ({{ employee.position }}, {{ employee.employeeUsername }})
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No employees are listed.</p>
+    {% endif %}
 {% endblock %}

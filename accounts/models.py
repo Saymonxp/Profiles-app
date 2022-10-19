@@ -1,5 +1,7 @@
+import hashlib
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 
@@ -15,3 +17,13 @@ class Employee(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    @property
+    def employeeUsername(self):
+        return self.user.username
+
+    def avatarMd5(self):
+        return("https://www.gravatar.com/avatar/" + str(hashlib.md5(self.user.username.encode()).hexdigest()))
+
+    def get_absolute_url(self):
+        return reverse('employee-detail', kwargs={'pk': self.pk})

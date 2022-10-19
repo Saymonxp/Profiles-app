@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title  %}Employee detail{% endblock %}
+{% block content %}
+    <h1> Detail</h1>
+    <img scr="{{ employee.avatarMd5 }}">
+    <p> Name: {{ employee.name }}</p>
+    <p> Position: {{ employee.position }}</p>
+    <p> Python skill: {{ employee.python_skill }}</p>
+    <p> SQL skill: {{ employee.sql_skill }}</p>
+    <p> Java skill: {{ employee.java_skill }}</p>
+    <p> Spark skill: {{ employee.spark_skill }}</p>
+    <p> HTML-CSS skill: {{ employee.html_css_skill }}</p>
+{% endblock %}
