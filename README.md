@@ -32,15 +32,16 @@ Profile pictures functionality is implemented using Gravatar. So each employee h
 
 ### Create, edit or delete employees
 
-Log in with admin credentials:
+- Log in with admin credentials:
 
 Username:
 ```admin```
+
 Password:
 ```factoredbestai```
 
-Enter to Admin page
+- Enter to Admin page
 
-In Employees section you have the options to create, edit and delete employees.
+- In Employees section you have the options to create, edit and delete employees.
 
 This functionality would be integrated with the main Sign up interface in future releases.
