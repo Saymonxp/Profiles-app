@@ -4,6 +4,8 @@ from django.urls import reverse_lazy
 from django.views import generic
 from plotly.offline import plot
 import plotly.graph_objects as go
+import plotly.express as px
+import pandas as pd
 import hashlib
 from .models import Employee
 
@@ -110,5 +112,16 @@ class EmployeeDetailView(generic.DetailView):
         plot_div = plot({'data': graphs, 'layout': layout}, 
                         output_type='div')
 
-        context["spider_chart"] = plot_div
+        df = pd.DataFrame(dict(
+        r=[1, 5, 2, 2, 3],
+        theta=['processing cost','mechanical properties','chemical stability',
+           'thermal stability', 'device integration']))
+        fig = px.line_polar(df, r='r', theta='theta', line_close=True)
+        fig.update_traces(fill='toself')
+
+        plot_div2 = plot({'data': fig, }, 
+                        output_type='div')
+        
+        context["test_chart"] = plot_div
+        context["spider_chart"] = plot_div2
         return context                    
