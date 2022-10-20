@@ -3,6 +3,9 @@
 {% block content %}
 {% if user.is_authenticated %}
     Hi {{ user.username }}!
+    {% if user.username == 'admin' %}
+        <br><a href="{% url 'admin:index' %}">Admin page</a>
+    {% endif %}
     <p><a href="{% url 'logout' %}">Logout</a></p>
 {% else %}
 <p> You are not logged in </p>
