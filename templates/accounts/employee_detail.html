@@ -11,4 +11,8 @@
     <p> Java skill: {{ employee.java_skill }}</p>
     <p> Spark skill: {{ employee.spark_skill }}</p>
     <p> HTML-CSS skill: {{ employee.html_css_skill }}</p>
+
+    {% autoescape off %}
+        {{ spider_chart }}
+    {% endautoescape %}
 {% endblock %}
