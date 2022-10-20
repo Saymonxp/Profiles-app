@@ -1,15 +1,5 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-{% if user.is_authenticated %}
-    Hi {{ user.username }}!
-    {% if user.username == 'admin' %}
-        <br><a href="{% url 'admin:index' %}">Admin page</a>
-    {% endif %}
-    <p><a href="{% url 'logout' %}">Logout</a></p>
-{% else %}
-<p> You are not logged in </p>
-<a href="{% url 'login' %}">Log in</a><br><br>
-<a href="{% url 'signup' %}">Sign in</a>
-{% endif %}
+<h1 class="position-absolute top-50 start-50 translate-middle"> Welcome to Profiles app </h1>
 {% endblock %}

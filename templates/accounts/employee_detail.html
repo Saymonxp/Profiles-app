@@ -1,18 +1,37 @@
 {% extends 'base.html' %}
 {% load customtags %}
-{% block title  %}Employee detail{% endblock %}
+{% block title  %}Employee profile{% endblock %}
 {% block content %}
-    <h1> Detail</h1>
-    {{ employee.employeeUsername|gravatar:150 }}
-    <p> Name: {{ employee.name }}</p>
-    <p> Position: {{ employee.position }}</p>
-    <p> Python skill: {{ employee.python_skill }}</p>
-    <p> SQL skill: {{ employee.sql_skill }}</p>
-    <p> Java skill: {{ employee.java_skill }}</p>
-    <p> Spark skill: {{ employee.spark_skill }}</p>
-    <p> HTML-CSS skill: {{ employee.html_css_skill }}</p>
-
-    {% autoescape off %}
-        {{ spider_chart }}
-    {% endautoescape %}
+    <div class="position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded">
+        <div class="container" style="width: 44em;">
+            <div class="row">
+                <h1 class="display-4">Employee profile</h1>
+            </div>
+            <div class="row">
+                <div class="col-3" style="position: relative;">
+                    <div style="position: absolute; top: 50%; transform: translateY(-50%);">
+                        {{ employee.employeeUsername|gravatar:100 }}
+                        <p class="mt-3"> Name: <br>{{ employee.name }}</p>
+                        <p>
+                            Username or email: <br>
+                            <a href="mailto:{{ employee.employeeUsername }}">
+                                <small>{{ employee.employeeUsername }}</small>
+                            </a>
+                        </p>
+                        <p> Position: <br>{{ employee.position }}</p>
+                        {% comment %} <p> Python skill: {{ employee.python_skill }}</p>
+                        <p> SQL skill: {{ employee.sql_skill }}</p>
+                        <p> Java skill: {{ employee.java_skill }}</p>
+                        <p> Spark skill: {{ employee.spark_skill }}</p>
+                        <p> HTML-CSS skill: {{ employee.html_css_skill }}</p> {% endcomment %}
+                    </div>
+                </div>
+                <div class="col-9">
+                    {% autoescape off %}
+                        {{ spider_chart }}
+                    {% endautoescape %}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

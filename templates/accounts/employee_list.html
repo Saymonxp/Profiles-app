@@ -1,16 +1,36 @@
 {% extends 'base.html' %}
 {% block title %}Profile{% endblock %}
 {% block content %}
-    <p>This will be profile page</p>
-    <p>It went through the main templates. Delete the one in app templates</p>
     {% if employee_list %}
-        <ul>
-        {% for employee in employee_list %}
-            <li>
-                <a href="{{ employee.get_absolute_url }}">{{ employee.name }}</a> ({{ employee.position }}, {{ employee.employeeUsername }})
-            </li>
-        {% endfor %}
-        </ul>
+        <div class="position-absolute top-50 start-50 translate-middle shadow mw-100 p-3 mb-5 bg-body rounded">
+            {% comment %} <ul class="list-group">
+            {% for employee in employee_list %}
+                <li class="list-group-item">
+                    <a href="{{ employee.get_absolute_url }}">
+                        {{ employee.name }}
+                    </a> 
+                    ({{ employee.position }}, {{ employee.employeeUsername }})
+                </li>
+            {% endfor %}
+            </ul> {% endcomment %}
+            <div class="container" style="width: 45em;">
+                {% for employee in employee_list %}
+                    <div class="row">
+                        <div class="col-4 border">
+                            <a href="{{ employee.get_absolute_url }}">
+                                {{ employee.name }}
+                            </a> 
+                        </div>
+                        <div class="col-3 border">{{ employee.position }}</div>
+                        <div class="col-5 border fs-6">
+                            <a href="mailto:{{ employee.employeeUsername }}">
+                                {{ employee.employeeUsername }}
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     {% else %}
         <p>No employees are listed.</p>
     {% endif %}
