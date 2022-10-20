@@ -11,13 +11,17 @@
 - Open Command Prompt and execute ```cd route_you_just_copied```
 - Execute ```python -m venv .env```. If it fails check if you have Python installed.
 - Execute the following commands, in order (```pip install``` may take some time):
-```
-.env/Scripts/activate.bat
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py makemigrations
-python manage.py runserver
-```
+
+```.env\Scripts\activate.bat```
+
+```pip install -r requirements.txt```
+
+```python manage.py migrate```
+
+```python manage.py makemigrations```
+
+```python manage.py runserver```
+
 - In the browser enter to http://127.0.0.1:8000/. There you have the site 😀.
 
 ## How to use the app
